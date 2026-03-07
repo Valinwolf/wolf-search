@@ -1,16 +1,16 @@
 ### how to use this with a docker instance
-1. Clone repo to local machine note path. (in the example repo is cloned to /root/proj)
-2. Within the `searxng:` service block in your docker compose file you should add these two lines (updated to align with your local machine cloned repo path) to the `volumes:` section. 
-  ```
-  services:
-    searxng:
-      volumes:
-        - '/root/proj/simply-nord/out/crabx:/usr/local/searxng/searx/templates/simple'
-        - '/root/proj/simply-nord/out/crabx-static:/usr/local/searxng/searx/static/themes/simple'
-  ```
-**Shorthand mount syntax is `- '[source path on local machine]:[target path in container]'`. This overwrites/replaces the in-container target folder.**
-
-3. In client side user settings 'simple' will still be selected but the theme is now the modified one, and the light/dark/black selector near it will adjust the color scheme for this modded theme as expected.
+1. Clone repo to local machine note path. (in the example repo is cloned to /root/proj)  
+2. Within the `searxng:` service block in your docker compose file you should add these two lines (updated to align with your local machine cloned repo path) to the `volumes:` section.  
+    ```
+    services:
+      searxng:
+        volumes:
+          - '/root/proj/simply-nord/out/crabx:/usr/local/searxng/searx/templates/simple'
+          - '/root/proj/simply-nord/out/crabx-static:/usr/local/searxng/searx/static/themes/simple'
+    ```  
+    **Shorthand mount syntax is `- '[source path on local machine]:[target path in container]'`. This overwrites/replaces the in-container target folder.**   
+  3. Double check the source path on local machine is correct for where you cloned the project.  
+  4. In client side user settings 'simple' will still be selected but the theme is now the modified one, and the light/dark/black selector near it will adjust the color scheme for this modded theme as expected.  
 
 ---
 
