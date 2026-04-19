@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
   <ShortName>{{ instance_name }}</ShortName>
-  <LongName>SearXNG metasearch</LongName>
-  <Description>SearXNG is a metasearch engine that respects your privacy.</Description>
+  <LongName>{{ instance_name }} metasearch</LongName>
+  <Description>{{ instance_name }} is a metasearch engine that respects your privacy.</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image type="image/png">{{ url_for('static', filename='img/favicon.png', _external=True) }}</Image>
   {% if opensearch_method == 'GET' %}
