@@ -102,6 +102,9 @@ New-Item -ItemType Directory -Path $OutStatic -Force | Out-Null
 Copy-Item -Path (Join-Path $TemplateTarget "*") -Destination $OutTemplates -Recurse -Force
 $BuildOutput = Join-Path $TempBuildPath "searx\static\themes\simple"
 if (Test-Path $BuildOutput) { Copy-Item -Path (Join-Path $BuildOutput "*") -Destination $OutStatic -Recurse -Force } else { Write-Error "CRITICAL: Build output directory not found."; return }
+$CustomImgSource = Join-Path $RepoPath "img"
+$OutImgDir = Join-Path $OutStatic "img"
+if (Test-Path $CustomImgSource) { if (Test-Path $OutImgDir) { Remove-Item $OutImgDir -Recurse -Force } Copy-Item -Path $CustomImgSource -Destination $OutImgDir -Recurse -Force }
 Write-Log "5" "Cleaning up and Verifying..."
 Remove-Item $TempBuildPath -Recurse -Force
 if (Test-Path (Join-Path $OutTemplates "results.html")) { Write-Log "5" "  -> Templates: OK" -Color Green } else { Write-Error "VERIFICATION FAILED: 'results.html' missing." }

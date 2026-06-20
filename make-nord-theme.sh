@@ -165,6 +165,14 @@ else
     exit 1
 fi
 
+CUSTOM_IMG_SOURCE="$REPO_PATH/img"
+OUT_IMG_DIR="$OUT_STATIC/img"
+
+if [[ -d "$CUSTOM_IMG_SOURCE" ]]; then
+    rm -rf "$OUT_IMG_DIR"
+    cp -a "$CUSTOM_IMG_SOURCE" "$OUT_IMG_DIR"
+fi
+
 write_log "5" "Cleaning up and Verifying..."
 
 rm -rf "$TEMP_BUILD_PATH"
