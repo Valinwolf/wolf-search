@@ -156,6 +156,13 @@ mkdir -p "$OUT_STATIC"
 
 cp -a "$TEMPLATE_TARGET"/. "$OUT_TEMPLATES"
 
+CUSTOM_WORDMARK="$REPO_PATH/wordmark.min.svg"
+OUT_WORDMARK="$OUT_TEMPLATES/searxng-wordmark.min.svg"
+
+if [[ -f "$CUSTOM_WORDMARK" ]]; then
+    cp "$CUSTOM_WORDMARK" "$OUT_WORDMARK"
+fi
+
 BUILD_OUTPUT="$TEMP_BUILD_PATH/searx/static/themes/simple"
 
 if [[ -d "$BUILD_OUTPUT" ]]; then

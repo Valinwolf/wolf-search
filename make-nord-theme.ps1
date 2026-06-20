@@ -100,6 +100,9 @@ if (Test-Path $OutputPath) { Remove-Item $OutputPath -Recurse -Force }
 New-Item -ItemType Directory -Path $OutTemplates -Force | Out-Null
 New-Item -ItemType Directory -Path $OutStatic -Force | Out-Null
 Copy-Item -Path (Join-Path $TemplateTarget "*") -Destination $OutTemplates -Recurse -Force
+$CustomWordmark = Join-Path $RepoPath "wordmark.min.svg"
+$OutWordmark = Join-Path $OutTemplates "searxng-wordmark.min.svg"
+if (Test-Path $CustomWordmark) { Copy-Item -Path $CustomWordmark -Destination $OutWordmark -Force }
 $BuildOutput = Join-Path $TempBuildPath "searx\static\themes\simple"
 if (Test-Path $BuildOutput) { Copy-Item -Path (Join-Path $BuildOutput "*") -Destination $OutStatic -Recurse -Force } else { Write-Error "CRITICAL: Build output directory not found."; return }
 $CustomImgSource = Join-Path $RepoPath "img"
